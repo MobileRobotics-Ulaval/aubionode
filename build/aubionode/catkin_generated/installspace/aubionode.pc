@@ -1,0 +1,8 @@
+prefix=/home/dave/AubioROS/install
+
+Name: aubionode
+Description: Description of aubionode
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/dave/AubioROS/install/lib 
+Requires: geometry_msgs
