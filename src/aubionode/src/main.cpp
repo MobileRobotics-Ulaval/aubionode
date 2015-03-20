@@ -145,7 +145,7 @@ void openStream()
 
 int main(int argc, char **argv)
 {
-    char rosname[100];
+    std::string rosname = "Aubionode";
     std::string temp_arg;
     ros::init(argc, argv, rosname);
     ros::NodeHandle node;
