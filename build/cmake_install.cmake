@@ -1,8 +1,8 @@
-# Install script for directory: /home/dave/AubioROS/src
+# Install script for directory: /home/cantor/Voiles-sails/aubioROS/src
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  SET(CMAKE_INSTALL_PREFIX "/home/dave/AubioROS/install")
+  SET(CMAKE_INSTALL_PREFIX "/home/cantor/Voiles-sails/aubioROS/install")
 ENDIF(NOT DEFINED CMAKE_INSTALL_PREFIX)
 STRING(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -43,75 +43,39 @@ IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/dave/AubioROS/install/_setup_util.py")
-  IF (CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
-    message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
-  ENDIF (CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
-  IF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
-    message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
-  ENDIF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
-FILE(INSTALL DESTINATION "/home/dave/AubioROS/install" TYPE PROGRAM FILES "/home/dave/AubioROS/build/catkin_generated/installspace/_setup_util.py")
+  list(APPEND CPACK_ABSOLUTE_DESTINATION_FILES
+   "/home/cantor/Voiles-sails/aubioROS/install/_setup_util.py")
+FILE(INSTALL DESTINATION "/home/cantor/Voiles-sails/aubioROS/install" TYPE PROGRAM FILES "/home/cantor/Voiles-sails/aubioROS/build/catkin_generated/installspace/_setup_util.py")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/dave/AubioROS/install/env.sh")
-  IF (CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
-    message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
-  ENDIF (CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
-  IF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
-    message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
-  ENDIF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
-FILE(INSTALL DESTINATION "/home/dave/AubioROS/install" TYPE PROGRAM FILES "/home/dave/AubioROS/build/catkin_generated/installspace/env.sh")
+  list(APPEND CPACK_ABSOLUTE_DESTINATION_FILES
+   "/home/cantor/Voiles-sails/aubioROS/install/env.sh")
+FILE(INSTALL DESTINATION "/home/cantor/Voiles-sails/aubioROS/install" TYPE PROGRAM FILES "/home/cantor/Voiles-sails/aubioROS/build/catkin_generated/installspace/env.sh")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/dave/AubioROS/install/setup.bash")
-  IF (CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
-    message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
-  ENDIF (CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
-  IF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
-    message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
-  ENDIF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
-FILE(INSTALL DESTINATION "/home/dave/AubioROS/install" TYPE FILE FILES "/home/dave/AubioROS/build/catkin_generated/installspace/setup.bash")
+  list(APPEND CPACK_ABSOLUTE_DESTINATION_FILES
+   "/home/cantor/Voiles-sails/aubioROS/install/setup.bash")
+FILE(INSTALL DESTINATION "/home/cantor/Voiles-sails/aubioROS/install" TYPE FILE FILES "/home/cantor/Voiles-sails/aubioROS/build/catkin_generated/installspace/setup.bash")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/dave/AubioROS/install/setup.sh")
-  IF (CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
-    message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
-  ENDIF (CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
-  IF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
-    message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
-  ENDIF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
-FILE(INSTALL DESTINATION "/home/dave/AubioROS/install" TYPE FILE FILES "/home/dave/AubioROS/build/catkin_generated/installspace/setup.sh")
+  list(APPEND CPACK_ABSOLUTE_DESTINATION_FILES
+   "/home/cantor/Voiles-sails/aubioROS/install/setup.sh")
+FILE(INSTALL DESTINATION "/home/cantor/Voiles-sails/aubioROS/install" TYPE FILE FILES "/home/cantor/Voiles-sails/aubioROS/build/catkin_generated/installspace/setup.sh")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/dave/AubioROS/install/setup.zsh")
-  IF (CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
-    message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
-  ENDIF (CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
-  IF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
-    message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
-  ENDIF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
-FILE(INSTALL DESTINATION "/home/dave/AubioROS/install" TYPE FILE FILES "/home/dave/AubioROS/build/catkin_generated/installspace/setup.zsh")
+  list(APPEND CPACK_ABSOLUTE_DESTINATION_FILES
+   "/home/cantor/Voiles-sails/aubioROS/install/setup.zsh")
+FILE(INSTALL DESTINATION "/home/cantor/Voiles-sails/aubioROS/install" TYPE FILE FILES "/home/cantor/Voiles-sails/aubioROS/build/catkin_generated/installspace/setup.zsh")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/dave/AubioROS/install/.rosinstall")
-  IF (CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
-    message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
-  ENDIF (CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
-  IF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
-    message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
-  ENDIF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
-FILE(INSTALL DESTINATION "/home/dave/AubioROS/install" TYPE FILE FILES "/home/dave/AubioROS/build/catkin_generated/installspace/.rosinstall")
+  list(APPEND CPACK_ABSOLUTE_DESTINATION_FILES
+   "/home/cantor/Voiles-sails/aubioROS/install/.rosinstall")
+FILE(INSTALL DESTINATION "/home/cantor/Voiles-sails/aubioROS/install" TYPE FILE FILES "/home/cantor/Voiles-sails/aubioROS/build/catkin_generated/installspace/.rosinstall")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
@@ -124,8 +88,8 @@ ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unsp
 
 IF(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  INCLUDE("/home/dave/AubioROS/build/gtest/cmake_install.cmake")
-  INCLUDE("/home/dave/AubioROS/build/aubionode/cmake_install.cmake")
+  INCLUDE("/home/cantor/Voiles-sails/aubioROS/build/gtest/cmake_install.cmake")
+  INCLUDE("/home/cantor/Voiles-sails/aubioROS/build/aubionode/cmake_install.cmake")
 
 ENDIF(NOT CMAKE_INSTALL_LOCAL_ONLY)
 
@@ -135,7 +99,7 @@ ELSE(CMAKE_INSTALL_COMPONENT)
   SET(CMAKE_INSTALL_MANIFEST "install_manifest.txt")
 ENDIF(CMAKE_INSTALL_COMPONENT)
 
-FILE(WRITE "/home/dave/AubioROS/build/${CMAKE_INSTALL_MANIFEST}" "")
+FILE(WRITE "/home/cantor/Voiles-sails/aubioROS/build/${CMAKE_INSTALL_MANIFEST}" "")
 FOREACH(file ${CMAKE_INSTALL_MANIFEST_FILES})
-  FILE(APPEND "/home/dave/AubioROS/build/${CMAKE_INSTALL_MANIFEST}" "${file}\n")
+  FILE(APPEND "/home/cantor/Voiles-sails/aubioROS/build/${CMAKE_INSTALL_MANIFEST}" "${file}\n")
 ENDFOREACH(file)

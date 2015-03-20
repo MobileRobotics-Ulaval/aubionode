@@ -1,2 +1,0 @@
-set(aubionode_MESSAGE_FILES "")
-set(aubionode_SERVICE_FILES "")

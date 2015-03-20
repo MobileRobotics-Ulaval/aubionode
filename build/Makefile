@@ -35,14 +35,11 @@ CMAKE_COMMAND = /usr/bin/cmake
 # The command to remove a file.
 RM = /usr/bin/cmake -E remove -f
 
-# Escaping for special characters.
-EQUALS = =
-
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/dave/AubioROS/src
+CMAKE_SOURCE_DIR = /home/cantor/Voiles-sails/aubioROS/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/dave/AubioROS/build
+CMAKE_BINARY_DIR = /home/cantor/Voiles-sails/aubioROS/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -120,9 +117,9 @@ test/fast: test
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/dave/AubioROS/build/CMakeFiles /home/dave/AubioROS/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cantor/Voiles-sails/aubioROS/build/CMakeFiles /home/cantor/Voiles-sails/aubioROS/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/dave/AubioROS/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cantor/Voiles-sails/aubioROS/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -226,6 +223,19 @@ gtest_main: cmake_check_build_system
 gtest_main/fast:
 	$(MAKE) -f gtest/CMakeFiles/gtest_main.dir/build.make gtest/CMakeFiles/gtest_main.dir/build
 .PHONY : gtest_main/fast
+
+#=============================================================================
+# Target rules for targets named aubio-lib
+
+# Build rule for target.
+aubio-lib: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 aubio-lib
+.PHONY : aubio-lib
+
+# fast build rule for target.
+aubio-lib/fast:
+	$(MAKE) -f aubionode/CMakeFiles/aubio-lib.dir/build.make aubionode/CMakeFiles/aubio-lib.dir/build
+.PHONY : aubio-lib/fast
 
 #=============================================================================
 # Target rules for targets named aubionode
@@ -358,6 +368,19 @@ rosgraph_msgs_generate_messages_py/fast:
 .PHONY : rosgraph_msgs_generate_messages_py/fast
 
 #=============================================================================
+# Target rules for targets named rtaudio
+
+# Build rule for target.
+rtaudio: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 rtaudio
+.PHONY : rtaudio
+
+# fast build rule for target.
+rtaudio/fast:
+	$(MAKE) -f aubionode/CMakeFiles/rtaudio.dir/build.make aubionode/CMakeFiles/rtaudio.dir/build
+.PHONY : rtaudio/fast
+
+#=============================================================================
 # Target rules for targets named std_msgs_generate_messages_cpp
 
 # Build rule for target.
@@ -415,6 +438,7 @@ help:
 	@echo "... tests"
 	@echo "... gtest"
 	@echo "... gtest_main"
+	@echo "... aubio-lib"
 	@echo "... aubionode"
 	@echo "... geometry_msgs_generate_messages_cpp"
 	@echo "... geometry_msgs_generate_messages_lisp"
@@ -425,6 +449,7 @@ help:
 	@echo "... rosgraph_msgs_generate_messages_cpp"
 	@echo "... rosgraph_msgs_generate_messages_lisp"
 	@echo "... rosgraph_msgs_generate_messages_py"
+	@echo "... rtaudio"
 	@echo "... std_msgs_generate_messages_cpp"
 	@echo "... std_msgs_generate_messages_lisp"
 	@echo "... std_msgs_generate_messages_py"

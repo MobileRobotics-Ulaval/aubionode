@@ -31,14 +31,11 @@ CMAKE_COMMAND = /usr/bin/cmake
 # The command to remove a file.
 RM = /usr/bin/cmake -E remove -f
 
-# Escaping for special characters.
-EQUALS = =
-
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/dave/AubioROS/src
+CMAKE_SOURCE_DIR = /home/cantor/Voiles-sails/aubioROS/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/dave/AubioROS/build
+CMAKE_BINARY_DIR = /home/cantor/Voiles-sails/aubioROS/build
 
 # Utility rule file for std_msgs_generate_messages_py.
 
@@ -56,10 +53,10 @@ aubionode/CMakeFiles/std_msgs_generate_messages_py.dir/build: std_msgs_generate_
 .PHONY : aubionode/CMakeFiles/std_msgs_generate_messages_py.dir/build
 
 aubionode/CMakeFiles/std_msgs_generate_messages_py.dir/clean:
-	cd /home/dave/AubioROS/build/aubionode && $(CMAKE_COMMAND) -P CMakeFiles/std_msgs_generate_messages_py.dir/cmake_clean.cmake
+	cd /home/cantor/Voiles-sails/aubioROS/build/aubionode && $(CMAKE_COMMAND) -P CMakeFiles/std_msgs_generate_messages_py.dir/cmake_clean.cmake
 .PHONY : aubionode/CMakeFiles/std_msgs_generate_messages_py.dir/clean
 
 aubionode/CMakeFiles/std_msgs_generate_messages_py.dir/depend:
-	cd /home/dave/AubioROS/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/dave/AubioROS/src /home/dave/AubioROS/src/aubionode /home/dave/AubioROS/build /home/dave/AubioROS/build/aubionode /home/dave/AubioROS/build/aubionode/CMakeFiles/std_msgs_generate_messages_py.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/cantor/Voiles-sails/aubioROS/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/cantor/Voiles-sails/aubioROS/src /home/cantor/Voiles-sails/aubioROS/src/aubionode /home/cantor/Voiles-sails/aubioROS/build /home/cantor/Voiles-sails/aubioROS/build/aubionode /home/cantor/Voiles-sails/aubioROS/build/aubionode/CMakeFiles/std_msgs_generate_messages_py.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : aubionode/CMakeFiles/std_msgs_generate_messages_py.dir/depend
 

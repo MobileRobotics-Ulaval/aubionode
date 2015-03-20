@@ -1,1 +1,2 @@
 aubionode
+-DCATKIN_DEVEL_PREFIX=/home/cantor/Voiles-sails/aubioROS/devel -DCMAKE_INSTALL_PREFIX=/home/cantor/Voiles-sails/aubioROS/install

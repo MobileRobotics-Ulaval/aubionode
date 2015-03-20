@@ -4,8 +4,17 @@ cmake_minimum_required(VERSION 2.8.3)
 project(aubionode)
 
 ## Find catkin and any catkin packages
+
+#set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake_modules" ${CMAKE_MODULE_PATH})
+
 find_package(catkin REQUIRED COMPONENTS geometry_msgs roscpp rospy std_msgs genmsg)
 find_package(Eigen REQUIRED)
+
+#find_package(SFML 2 REQUIRED system audio)
+#if(SFML_FOUND)
+ #   include_directories(${SFML_INCLUDE_DIR})
+  #  target_link_libraries(${EXECUTABLE_NAME} ${SFML_LIBRARIES})
+#endif()
 
 ## Declare ROS messages, services and actions
 #add_message_files(DIRECTORY msg FILES state.msg)
@@ -25,15 +34,38 @@ DEPENDS eigen)
 ## Your package locations should be listed before other locations
 include_directories(include ${catkin_INCLUDE_DIRS})
 
-
 ## Build talker and listener
 include_directories( ${catkin_INCLUDE_DIRS}
   ${EIGEN_INCLUDE_DIRS})
 
+#building the aubio lib with a script
+add_custom_command(OUTPUT ${CMAKE_SOURCE_DIR}/aubionode/src/aubio-lib/build/src/libaubio.so
+                WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/aubionode/src/aubio-lib
+                COMMAND ./build-aubiolib.sh
+                )
+
+add_custom_target(aubio-lib
+                  DEPENDS ${CMAKE_SOURCE_DIR}/aubionode/src/aubio-lib/build/src/libaubio.so
+                )
+
+#building the RtAudio lib with a script
+add_custom_command(OUTPUT ${CMAKE_SOURCE_DIR}/aubionode/src/rtaudio/librtaudio.so
+                WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/aubionode/src/rtaudio
+                COMMAND ./build-rtaudio.sh
+                )
+
+add_custom_target(rtaudio
+                  DEPENDS ${CMAKE_SOURCE_DIR}/aubionode/src/rtaudio/librtaudio.so
+                )
 
 add_executable(aubionode src/main.cpp)
-target_link_libraries(aubionode ${catkin_LIBRARIES})
-add_dependencies(aubionode std_msgs geometry_msgs)
+
+add_dependencies(aubionode std_msgs geometry_msgs aubio-lib rtaudio)
+
+target_link_libraries(aubionode ${catkin_LIBRARIES}) #link to ROS libs
+target_link_libraries(aubionode ${CMAKE_SOURCE_DIR}/aubionode/src/aubio-lib/build/src/libaubio.so) #link to aubio-lib
+target_link_libraries(aubionode ${CMAKE_SOURCE_DIR}/aubionode/src/rtaudio/librtaudio.so) #link to rtaudio
+
 #add_executable(state_estimator_SICK src/state_estimator_SICK.cpp)
 #target_link_libraries(state_estimator_SICK ${catkin_LIBRARIES})
 #add_dependencies(state_estimator_SICK sensors_gencpp std_msgs geometry_msgs)

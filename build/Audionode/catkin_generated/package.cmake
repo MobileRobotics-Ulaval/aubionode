@@ -1,7 +1,0 @@
-set(_CATKIN_CURRENT_PACKAGE "Audionode")
-set(Audionode_MAINTAINER "dave <dave@todo.todo>")
-set(Audionode_DEPRECATED "")
-set(Audionode_VERSION "0.0.0")
-set(Audionode_BUILD_DEPENDS "geometry_msgs" "roscpp" "rospy" "std_msgs")
-set(Audionode_RUN_DEPENDS "geometry_msgs" "roscpp" "rospy" "std_msgs")
-set(Audionode_BUILDTOOL_DEPENDS "catkin")

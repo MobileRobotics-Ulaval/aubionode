@@ -1,8 +1,8 @@
-# Install script for directory: /home/dave/AubioROS/src/aubionode
+# Install script for directory: /home/cantor/Voiles-sails/aubioROS/src/aubionode
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  SET(CMAKE_INSTALL_PREFIX "/home/dave/AubioROS/install")
+  SET(CMAKE_INSTALL_PREFIX "/home/cantor/Voiles-sails/aubioROS/install")
 ENDIF(NOT DEFINED CMAKE_INSTALL_PREFIX)
 STRING(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -33,17 +33,17 @@ IF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 ENDIF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/dave/AubioROS/build/aubionode/catkin_generated/installspace/aubionode.pc")
+  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/cantor/Voiles-sails/aubioROS/build/aubionode/catkin_generated/installspace/aubionode.pc")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/aubionode/cmake" TYPE FILE FILES
-    "/home/dave/AubioROS/build/aubionode/catkin_generated/installspace/aubionodeConfig.cmake"
-    "/home/dave/AubioROS/build/aubionode/catkin_generated/installspace/aubionodeConfig-version.cmake"
+    "/home/cantor/Voiles-sails/aubioROS/build/aubionode/catkin_generated/installspace/aubionodeConfig.cmake"
+    "/home/cantor/Voiles-sails/aubioROS/build/aubionode/catkin_generated/installspace/aubionodeConfig-version.cmake"
     )
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/aubionode" TYPE FILE FILES "/home/dave/AubioROS/src/aubionode/package.xml")
+  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/aubionode" TYPE FILE FILES "/home/cantor/Voiles-sails/aubioROS/src/aubionode/package.xml")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 

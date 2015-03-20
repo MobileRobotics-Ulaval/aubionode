@@ -7,4 +7,4 @@
 # new environment variables
 
 # modified environment variables
-export PWD="/home/dave/AubioROS/build"
+export PWD="/home/cantor/Voiles-sails/aubioROS/build"

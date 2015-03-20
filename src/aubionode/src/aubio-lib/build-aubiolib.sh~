@@ -1,0 +1,7 @@
+#!/bin/bash
+clear
+
+cd src/aubio-lib
+
+./waf configure
+./waf build

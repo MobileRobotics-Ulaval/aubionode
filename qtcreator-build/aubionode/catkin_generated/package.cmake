@@ -1,0 +1,7 @@
+set(_CATKIN_CURRENT_PACKAGE "aubionode")
+set(aubionode_MAINTAINER "dave <dave@todo.todo>")
+set(aubionode_DEPRECATED "")
+set(aubionode_VERSION "0.0.0")
+set(aubionode_BUILD_DEPENDS "geometry_msgs" "roscpp" "rospy" "std_msgs")
+set(aubionode_RUN_DEPENDS "geometry_msgs" "roscpp" "rospy" "std_msgs")
+set(aubionode_BUILDTOOL_DEPENDS "catkin")

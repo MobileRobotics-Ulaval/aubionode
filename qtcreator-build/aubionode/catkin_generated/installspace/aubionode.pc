@@ -1,0 +1,8 @@
+prefix=/usr/local
+
+Name: aubionode
+Description: Description of aubionode
+Version: 0.0.0
+Cflags: 
+Libs: -L/usr/local/lib 
+Requires: geometry_msgs

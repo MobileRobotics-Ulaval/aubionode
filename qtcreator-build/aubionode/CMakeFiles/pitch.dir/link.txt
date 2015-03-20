@@ -1,0 +1,1 @@
+/usr/bin/gcc  -fPIC    -shared -Wl,-soname,libpitch.so -o ../devel/lib/libpitch.so CMakeFiles/pitch.dir/src/pitch/pitch.c.o 

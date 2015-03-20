@@ -1,8 +1,8 @@
-prefix=/home/dave/AubioROS/devel
+prefix=/home/cantor/Voiles-sails/aubioROS/devel
 
 Name: aubionode
 Description: Description of aubionode
 Version: 0.0.0
 Cflags: 
-Libs: -L/home/dave/AubioROS/devel/lib 
+Libs: -L/home/cantor/Voiles-sails/aubioROS/devel/lib 
 Requires: geometry_msgs

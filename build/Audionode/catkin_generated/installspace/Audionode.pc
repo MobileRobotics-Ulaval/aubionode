@@ -1,8 +1,0 @@
-prefix=/home/dave/AubioROS/install
-
-Name: Audionode
-Description: Description of Audionode
-Version: 0.0.0
-Cflags: 
-Libs: -L/home/dave/AubioROS/install/lib 
-Requires: 

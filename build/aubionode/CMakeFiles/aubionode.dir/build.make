@@ -31,14 +31,11 @@ CMAKE_COMMAND = /usr/bin/cmake
 # The command to remove a file.
 RM = /usr/bin/cmake -E remove -f
 
-# Escaping for special characters.
-EQUALS = =
-
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/dave/AubioROS/src
+CMAKE_SOURCE_DIR = /home/cantor/Voiles-sails/aubioROS/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/dave/AubioROS/build
+CMAKE_BINARY_DIR = /home/cantor/Voiles-sails/aubioROS/build
 
 # Include any dependencies generated for this target.
 include aubionode/CMakeFiles/aubionode.dir/depend.make
@@ -50,18 +47,18 @@ include aubionode/CMakeFiles/aubionode.dir/progress.make
 include aubionode/CMakeFiles/aubionode.dir/flags.make
 
 aubionode/CMakeFiles/aubionode.dir/src/main.cpp.o: aubionode/CMakeFiles/aubionode.dir/flags.make
-aubionode/CMakeFiles/aubionode.dir/src/main.cpp.o: /home/dave/AubioROS/src/aubionode/src/main.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/dave/AubioROS/build/CMakeFiles $(CMAKE_PROGRESS_1)
+aubionode/CMakeFiles/aubionode.dir/src/main.cpp.o: /home/cantor/Voiles-sails/aubioROS/src/aubionode/src/main.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cantor/Voiles-sails/aubioROS/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object aubionode/CMakeFiles/aubionode.dir/src/main.cpp.o"
-	cd /home/dave/AubioROS/build/aubionode && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/aubionode.dir/src/main.cpp.o -c /home/dave/AubioROS/src/aubionode/src/main.cpp
+	cd /home/cantor/Voiles-sails/aubioROS/build/aubionode && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/aubionode.dir/src/main.cpp.o -c /home/cantor/Voiles-sails/aubioROS/src/aubionode/src/main.cpp
 
 aubionode/CMakeFiles/aubionode.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/aubionode.dir/src/main.cpp.i"
-	cd /home/dave/AubioROS/build/aubionode && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/dave/AubioROS/src/aubionode/src/main.cpp > CMakeFiles/aubionode.dir/src/main.cpp.i
+	cd /home/cantor/Voiles-sails/aubioROS/build/aubionode && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/cantor/Voiles-sails/aubioROS/src/aubionode/src/main.cpp > CMakeFiles/aubionode.dir/src/main.cpp.i
 
 aubionode/CMakeFiles/aubionode.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/aubionode.dir/src/main.cpp.s"
-	cd /home/dave/AubioROS/build/aubionode && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/dave/AubioROS/src/aubionode/src/main.cpp -o CMakeFiles/aubionode.dir/src/main.cpp.s
+	cd /home/cantor/Voiles-sails/aubioROS/build/aubionode && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/cantor/Voiles-sails/aubioROS/src/aubionode/src/main.cpp -o CMakeFiles/aubionode.dir/src/main.cpp.s
 
 aubionode/CMakeFiles/aubionode.dir/src/main.cpp.o.requires:
 .PHONY : aubionode/CMakeFiles/aubionode.dir/src/main.cpp.o.requires
@@ -72,48 +69,76 @@ aubionode/CMakeFiles/aubionode.dir/src/main.cpp.o.provides: aubionode/CMakeFiles
 
 aubionode/CMakeFiles/aubionode.dir/src/main.cpp.o.provides.build: aubionode/CMakeFiles/aubionode.dir/src/main.cpp.o
 
+aubionode/CMakeFiles/aubionode.dir/src/aubiopitch.c.o: aubionode/CMakeFiles/aubionode.dir/flags.make
+aubionode/CMakeFiles/aubionode.dir/src/aubiopitch.c.o: /home/cantor/Voiles-sails/aubioROS/src/aubionode/src/aubiopitch.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/cantor/Voiles-sails/aubioROS/build/CMakeFiles $(CMAKE_PROGRESS_2)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object aubionode/CMakeFiles/aubionode.dir/src/aubiopitch.c.o"
+	cd /home/cantor/Voiles-sails/aubioROS/build/aubionode && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/aubionode.dir/src/aubiopitch.c.o   -c /home/cantor/Voiles-sails/aubioROS/src/aubionode/src/aubiopitch.c
+
+aubionode/CMakeFiles/aubionode.dir/src/aubiopitch.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/aubionode.dir/src/aubiopitch.c.i"
+	cd /home/cantor/Voiles-sails/aubioROS/build/aubionode && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/cantor/Voiles-sails/aubioROS/src/aubionode/src/aubiopitch.c > CMakeFiles/aubionode.dir/src/aubiopitch.c.i
+
+aubionode/CMakeFiles/aubionode.dir/src/aubiopitch.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/aubionode.dir/src/aubiopitch.c.s"
+	cd /home/cantor/Voiles-sails/aubioROS/build/aubionode && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/cantor/Voiles-sails/aubioROS/src/aubionode/src/aubiopitch.c -o CMakeFiles/aubionode.dir/src/aubiopitch.c.s
+
+aubionode/CMakeFiles/aubionode.dir/src/aubiopitch.c.o.requires:
+.PHONY : aubionode/CMakeFiles/aubionode.dir/src/aubiopitch.c.o.requires
+
+aubionode/CMakeFiles/aubionode.dir/src/aubiopitch.c.o.provides: aubionode/CMakeFiles/aubionode.dir/src/aubiopitch.c.o.requires
+	$(MAKE) -f aubionode/CMakeFiles/aubionode.dir/build.make aubionode/CMakeFiles/aubionode.dir/src/aubiopitch.c.o.provides.build
+.PHONY : aubionode/CMakeFiles/aubionode.dir/src/aubiopitch.c.o.provides
+
+aubionode/CMakeFiles/aubionode.dir/src/aubiopitch.c.o.provides.build: aubionode/CMakeFiles/aubionode.dir/src/aubiopitch.c.o
+
 # Object files for target aubionode
 aubionode_OBJECTS = \
-"CMakeFiles/aubionode.dir/src/main.cpp.o"
+"CMakeFiles/aubionode.dir/src/main.cpp.o" \
+"CMakeFiles/aubionode.dir/src/aubiopitch.c.o"
 
 # External object files for target aubionode
 aubionode_EXTERNAL_OBJECTS =
 
-/home/dave/AubioROS/devel/lib/aubionode/aubionode: aubionode/CMakeFiles/aubionode.dir/src/main.cpp.o
-/home/dave/AubioROS/devel/lib/aubionode/aubionode: aubionode/CMakeFiles/aubionode.dir/build.make
-/home/dave/AubioROS/devel/lib/aubionode/aubionode: /opt/ros/hydro/lib/libroscpp.so
-/home/dave/AubioROS/devel/lib/aubionode/aubionode: /usr/lib/libboost_signals-mt.so
-/home/dave/AubioROS/devel/lib/aubionode/aubionode: /usr/lib/libboost_filesystem-mt.so
-/home/dave/AubioROS/devel/lib/aubionode/aubionode: /opt/ros/hydro/lib/librosconsole.so
-/home/dave/AubioROS/devel/lib/aubionode/aubionode: /opt/ros/hydro/lib/librosconsole_log4cxx.so
-/home/dave/AubioROS/devel/lib/aubionode/aubionode: /opt/ros/hydro/lib/librosconsole_backend_interface.so
-/home/dave/AubioROS/devel/lib/aubionode/aubionode: /usr/lib/liblog4cxx.so
-/home/dave/AubioROS/devel/lib/aubionode/aubionode: /usr/lib/libboost_regex-mt.so
-/home/dave/AubioROS/devel/lib/aubionode/aubionode: /opt/ros/hydro/lib/libxmlrpcpp.so
-/home/dave/AubioROS/devel/lib/aubionode/aubionode: /opt/ros/hydro/lib/libroscpp_serialization.so
-/home/dave/AubioROS/devel/lib/aubionode/aubionode: /opt/ros/hydro/lib/librostime.so
-/home/dave/AubioROS/devel/lib/aubionode/aubionode: /usr/lib/libboost_date_time-mt.so
-/home/dave/AubioROS/devel/lib/aubionode/aubionode: /usr/lib/libboost_system-mt.so
-/home/dave/AubioROS/devel/lib/aubionode/aubionode: /usr/lib/libboost_thread-mt.so
-/home/dave/AubioROS/devel/lib/aubionode/aubionode: /usr/lib/x86_64-linux-gnu/libpthread.so
-/home/dave/AubioROS/devel/lib/aubionode/aubionode: /opt/ros/hydro/lib/libcpp_common.so
-/home/dave/AubioROS/devel/lib/aubionode/aubionode: /opt/ros/hydro/lib/libconsole_bridge.so
-/home/dave/AubioROS/devel/lib/aubionode/aubionode: aubionode/CMakeFiles/aubionode.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable /home/dave/AubioROS/devel/lib/aubionode/aubionode"
-	cd /home/dave/AubioROS/build/aubionode && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/aubionode.dir/link.txt --verbose=$(VERBOSE)
+/home/cantor/Voiles-sails/aubioROS/devel/lib/aubionode/aubionode: aubionode/CMakeFiles/aubionode.dir/src/main.cpp.o
+/home/cantor/Voiles-sails/aubioROS/devel/lib/aubionode/aubionode: aubionode/CMakeFiles/aubionode.dir/src/aubiopitch.c.o
+/home/cantor/Voiles-sails/aubioROS/devel/lib/aubionode/aubionode: /opt/ros/hydro/lib/libroscpp.so
+/home/cantor/Voiles-sails/aubioROS/devel/lib/aubionode/aubionode: /usr/lib/libboost_signals-mt.so
+/home/cantor/Voiles-sails/aubioROS/devel/lib/aubionode/aubionode: /usr/lib/libboost_filesystem-mt.so
+/home/cantor/Voiles-sails/aubioROS/devel/lib/aubionode/aubionode: /opt/ros/hydro/lib/librosconsole.so
+/home/cantor/Voiles-sails/aubioROS/devel/lib/aubionode/aubionode: /opt/ros/hydro/lib/librosconsole_log4cxx.so
+/home/cantor/Voiles-sails/aubioROS/devel/lib/aubionode/aubionode: /opt/ros/hydro/lib/librosconsole_backend_interface.so
+/home/cantor/Voiles-sails/aubioROS/devel/lib/aubionode/aubionode: /usr/lib/liblog4cxx.so
+/home/cantor/Voiles-sails/aubioROS/devel/lib/aubionode/aubionode: /usr/lib/libboost_regex-mt.so
+/home/cantor/Voiles-sails/aubioROS/devel/lib/aubionode/aubionode: /opt/ros/hydro/lib/libxmlrpcpp.so
+/home/cantor/Voiles-sails/aubioROS/devel/lib/aubionode/aubionode: /opt/ros/hydro/lib/libroscpp_serialization.so
+/home/cantor/Voiles-sails/aubioROS/devel/lib/aubionode/aubionode: /opt/ros/hydro/lib/librostime.so
+/home/cantor/Voiles-sails/aubioROS/devel/lib/aubionode/aubionode: /usr/lib/libboost_date_time-mt.so
+/home/cantor/Voiles-sails/aubioROS/devel/lib/aubionode/aubionode: /usr/lib/libboost_system-mt.so
+/home/cantor/Voiles-sails/aubioROS/devel/lib/aubionode/aubionode: /usr/lib/libboost_thread-mt.so
+/home/cantor/Voiles-sails/aubioROS/devel/lib/aubionode/aubionode: /usr/lib/x86_64-linux-gnu/libpthread.so
+/home/cantor/Voiles-sails/aubioROS/devel/lib/aubionode/aubionode: /opt/ros/hydro/lib/libcpp_common.so
+/home/cantor/Voiles-sails/aubioROS/devel/lib/aubionode/aubionode: /opt/ros/hydro/lib/libconsole_bridge.so
+/home/cantor/Voiles-sails/aubioROS/devel/lib/aubionode/aubionode: /home/cantor/Voiles-sails/aubioROS/src/aubionode/src/aubio-lib/build/src/libaubio.so
+/home/cantor/Voiles-sails/aubioROS/devel/lib/aubionode/aubionode: /home/cantor/Voiles-sails/aubioROS/src/aubionode/src/rtaudio/librtaudio.so
+/home/cantor/Voiles-sails/aubioROS/devel/lib/aubionode/aubionode: aubionode/CMakeFiles/aubionode.dir/build.make
+/home/cantor/Voiles-sails/aubioROS/devel/lib/aubionode/aubionode: aubionode/CMakeFiles/aubionode.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable /home/cantor/Voiles-sails/aubioROS/devel/lib/aubionode/aubionode"
+	cd /home/cantor/Voiles-sails/aubioROS/build/aubionode && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/aubionode.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-aubionode/CMakeFiles/aubionode.dir/build: /home/dave/AubioROS/devel/lib/aubionode/aubionode
+aubionode/CMakeFiles/aubionode.dir/build: /home/cantor/Voiles-sails/aubioROS/devel/lib/aubionode/aubionode
 .PHONY : aubionode/CMakeFiles/aubionode.dir/build
 
 aubionode/CMakeFiles/aubionode.dir/requires: aubionode/CMakeFiles/aubionode.dir/src/main.cpp.o.requires
+aubionode/CMakeFiles/aubionode.dir/requires: aubionode/CMakeFiles/aubionode.dir/src/aubiopitch.c.o.requires
 .PHONY : aubionode/CMakeFiles/aubionode.dir/requires
 
 aubionode/CMakeFiles/aubionode.dir/clean:
-	cd /home/dave/AubioROS/build/aubionode && $(CMAKE_COMMAND) -P CMakeFiles/aubionode.dir/cmake_clean.cmake
+	cd /home/cantor/Voiles-sails/aubioROS/build/aubionode && $(CMAKE_COMMAND) -P CMakeFiles/aubionode.dir/cmake_clean.cmake
 .PHONY : aubionode/CMakeFiles/aubionode.dir/clean
 
 aubionode/CMakeFiles/aubionode.dir/depend:
-	cd /home/dave/AubioROS/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/dave/AubioROS/src /home/dave/AubioROS/src/aubionode /home/dave/AubioROS/build /home/dave/AubioROS/build/aubionode /home/dave/AubioROS/build/aubionode/CMakeFiles/aubionode.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/cantor/Voiles-sails/aubioROS/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/cantor/Voiles-sails/aubioROS/src /home/cantor/Voiles-sails/aubioROS/src/aubionode /home/cantor/Voiles-sails/aubioROS/build /home/cantor/Voiles-sails/aubioROS/build/aubionode /home/cantor/Voiles-sails/aubioROS/build/aubionode/CMakeFiles/aubionode.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : aubionode/CMakeFiles/aubionode.dir/depend
 
