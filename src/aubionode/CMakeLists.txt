@@ -7,7 +7,7 @@ project(aubionode)
 
 #set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake_modules" ${CMAKE_MODULE_PATH})
 
-find_package(catkin REQUIRED COMPONENTS geometry_msgs roscpp rospy std_msgs genmsg)
+find_package(catkin REQUIRED COMPONENTS geometry_msgs roscpp rospy std_msgs genmsg cmake_modules)
 find_package(Eigen REQUIRED)
 
 #find_package(SFML 2 REQUIRED system audio)

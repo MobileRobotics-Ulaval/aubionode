@@ -1,6 +1,6 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/aubio-lib"
-  "/home/cantor/Voiles-sails/aubioROS/src/aubionode/src/aubio-lib/build/src/libaubio.so"
+  "/home/dave/ROS/aubioROS/src/aubionode/src/aubio-lib/build/src/libaubio.so"
 )
 
 # Per-language clean rules from dependency scanning.

@@ -31,26 +31,29 @@ CMAKE_COMMAND = /usr/bin/cmake
 # The command to remove a file.
 RM = /usr/bin/cmake -E remove -f
 
+# Escaping for special characters.
+EQUALS = =
+
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/cantor/Voiles-sails/aubioROS/src
+CMAKE_SOURCE_DIR = /home/dave/ROS/aubioROS/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/cantor/Voiles-sails/aubioROS/build
+CMAKE_BINARY_DIR = /home/dave/ROS/aubioROS/build
 
 # Utility rule file for rtaudio.
 
 # Include the progress variables for this target.
 include aubionode/CMakeFiles/rtaudio.dir/progress.make
 
-aubionode/CMakeFiles/rtaudio: /home/cantor/Voiles-sails/aubioROS/src/aubionode/src/rtaudio/librtaudio.so
+aubionode/CMakeFiles/rtaudio: /home/dave/ROS/aubioROS/src/aubionode/src/rtaudio/librtaudio.so
 
-/home/cantor/Voiles-sails/aubioROS/src/aubionode/src/rtaudio/librtaudio.so:
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/cantor/Voiles-sails/aubioROS/build/CMakeFiles $(CMAKE_PROGRESS_1)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating /home/cantor/Voiles-sails/aubioROS/src/aubionode/src/rtaudio/librtaudio.so"
-	cd /home/cantor/Voiles-sails/aubioROS/src/aubionode/src/rtaudio && ./build-rtaudio.sh
+/home/dave/ROS/aubioROS/src/aubionode/src/rtaudio/librtaudio.so:
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/dave/ROS/aubioROS/build/CMakeFiles $(CMAKE_PROGRESS_1)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating /home/dave/ROS/aubioROS/src/aubionode/src/rtaudio/librtaudio.so"
+	cd /home/dave/ROS/aubioROS/src/aubionode/src/rtaudio && ./build-rtaudio.sh
 
 rtaudio: aubionode/CMakeFiles/rtaudio
-rtaudio: /home/cantor/Voiles-sails/aubioROS/src/aubionode/src/rtaudio/librtaudio.so
+rtaudio: /home/dave/ROS/aubioROS/src/aubionode/src/rtaudio/librtaudio.so
 rtaudio: aubionode/CMakeFiles/rtaudio.dir/build.make
 .PHONY : rtaudio
 
@@ -59,10 +62,10 @@ aubionode/CMakeFiles/rtaudio.dir/build: rtaudio
 .PHONY : aubionode/CMakeFiles/rtaudio.dir/build
 
 aubionode/CMakeFiles/rtaudio.dir/clean:
-	cd /home/cantor/Voiles-sails/aubioROS/build/aubionode && $(CMAKE_COMMAND) -P CMakeFiles/rtaudio.dir/cmake_clean.cmake
+	cd /home/dave/ROS/aubioROS/build/aubionode && $(CMAKE_COMMAND) -P CMakeFiles/rtaudio.dir/cmake_clean.cmake
 .PHONY : aubionode/CMakeFiles/rtaudio.dir/clean
 
 aubionode/CMakeFiles/rtaudio.dir/depend:
-	cd /home/cantor/Voiles-sails/aubioROS/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/cantor/Voiles-sails/aubioROS/src /home/cantor/Voiles-sails/aubioROS/src/aubionode /home/cantor/Voiles-sails/aubioROS/build /home/cantor/Voiles-sails/aubioROS/build/aubionode /home/cantor/Voiles-sails/aubioROS/build/aubionode/CMakeFiles/rtaudio.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/dave/ROS/aubioROS/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/dave/ROS/aubioROS/src /home/dave/ROS/aubioROS/src/aubionode /home/dave/ROS/aubioROS/build /home/dave/ROS/aubioROS/build/aubionode /home/dave/ROS/aubioROS/build/aubionode/CMakeFiles/rtaudio.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : aubionode/CMakeFiles/rtaudio.dir/depend
 

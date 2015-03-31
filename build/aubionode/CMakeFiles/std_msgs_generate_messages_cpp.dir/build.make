@@ -31,11 +31,14 @@ CMAKE_COMMAND = /usr/bin/cmake
 # The command to remove a file.
 RM = /usr/bin/cmake -E remove -f
 
+# Escaping for special characters.
+EQUALS = =
+
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/cantor/Voiles-sails/aubioROS/src
+CMAKE_SOURCE_DIR = /home/dave/ROS/aubioROS/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/cantor/Voiles-sails/aubioROS/build
+CMAKE_BINARY_DIR = /home/dave/ROS/aubioROS/build
 
 # Utility rule file for std_msgs_generate_messages_cpp.
 
@@ -53,10 +56,10 @@ aubionode/CMakeFiles/std_msgs_generate_messages_cpp.dir/build: std_msgs_generate
 .PHONY : aubionode/CMakeFiles/std_msgs_generate_messages_cpp.dir/build
 
 aubionode/CMakeFiles/std_msgs_generate_messages_cpp.dir/clean:
-	cd /home/cantor/Voiles-sails/aubioROS/build/aubionode && $(CMAKE_COMMAND) -P CMakeFiles/std_msgs_generate_messages_cpp.dir/cmake_clean.cmake
+	cd /home/dave/ROS/aubioROS/build/aubionode && $(CMAKE_COMMAND) -P CMakeFiles/std_msgs_generate_messages_cpp.dir/cmake_clean.cmake
 .PHONY : aubionode/CMakeFiles/std_msgs_generate_messages_cpp.dir/clean
 
 aubionode/CMakeFiles/std_msgs_generate_messages_cpp.dir/depend:
-	cd /home/cantor/Voiles-sails/aubioROS/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/cantor/Voiles-sails/aubioROS/src /home/cantor/Voiles-sails/aubioROS/src/aubionode /home/cantor/Voiles-sails/aubioROS/build /home/cantor/Voiles-sails/aubioROS/build/aubionode /home/cantor/Voiles-sails/aubioROS/build/aubionode/CMakeFiles/std_msgs_generate_messages_cpp.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/dave/ROS/aubioROS/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/dave/ROS/aubioROS/src /home/dave/ROS/aubioROS/src/aubionode /home/dave/ROS/aubioROS/build /home/dave/ROS/aubioROS/build/aubionode /home/dave/ROS/aubioROS/build/aubionode/CMakeFiles/std_msgs_generate_messages_cpp.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : aubionode/CMakeFiles/std_msgs_generate_messages_cpp.dir/depend
 

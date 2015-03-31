@@ -1,6 +1,6 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/rtaudio"
-  "/home/cantor/Voiles-sails/aubioROS/src/aubionode/src/rtaudio/librtaudio.so"
+  "/home/dave/ROS/aubioROS/src/aubionode/src/rtaudio/librtaudio.so"
 )
 
 # Per-language clean rules from dependency scanning.

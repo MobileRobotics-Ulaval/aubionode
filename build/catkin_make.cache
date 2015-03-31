@@ -1,2 +1,2 @@
 aubionode
--DCATKIN_DEVEL_PREFIX=/home/cantor/Voiles-sails/aubioROS/devel -DCMAKE_INSTALL_PREFIX=/home/cantor/Voiles-sails/aubioROS/install
+-DCATKIN_DEVEL_PREFIX=/home/dave/ROS/aubioROS/devel -DCMAKE_INSTALL_PREFIX=/home/dave/ROS/aubioROS/install -G Unix Makefiles

@@ -35,11 +35,14 @@ CMAKE_COMMAND = /usr/bin/cmake
 # The command to remove a file.
 RM = /usr/bin/cmake -E remove -f
 
+# Escaping for special characters.
+EQUALS = =
+
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/cantor/Voiles-sails/aubioROS/src
+CMAKE_SOURCE_DIR = /home/dave/ROS/aubioROS/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/cantor/Voiles-sails/aubioROS/build
+CMAKE_BINARY_DIR = /home/dave/ROS/aubioROS/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -117,14 +120,14 @@ test/fast: test
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/cantor/Voiles-sails/aubioROS/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/cantor/Voiles-sails/aubioROS/build/CMakeFiles /home/cantor/Voiles-sails/aubioROS/build/aubionode/CMakeFiles/progress.marks
-	cd /home/cantor/Voiles-sails/aubioROS/build && $(MAKE) -f CMakeFiles/Makefile2 aubionode/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cantor/Voiles-sails/aubioROS/build/CMakeFiles 0
+	cd /home/dave/ROS/aubioROS/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/dave/ROS/aubioROS/build/CMakeFiles /home/dave/ROS/aubioROS/build/aubionode/CMakeFiles/progress.marks
+	cd /home/dave/ROS/aubioROS/build && $(MAKE) -f CMakeFiles/Makefile2 aubionode/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/dave/ROS/aubioROS/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/cantor/Voiles-sails/aubioROS/build && $(MAKE) -f CMakeFiles/Makefile2 aubionode/clean
+	cd /home/dave/ROS/aubioROS/build && $(MAKE) -f CMakeFiles/Makefile2 aubionode/clean
 .PHONY : clean
 
 # The main clean target
@@ -133,22 +136,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/cantor/Voiles-sails/aubioROS/build && $(MAKE) -f CMakeFiles/Makefile2 aubionode/preinstall
+	cd /home/dave/ROS/aubioROS/build && $(MAKE) -f CMakeFiles/Makefile2 aubionode/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/cantor/Voiles-sails/aubioROS/build && $(MAKE) -f CMakeFiles/Makefile2 aubionode/preinstall
+	cd /home/dave/ROS/aubioROS/build && $(MAKE) -f CMakeFiles/Makefile2 aubionode/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/cantor/Voiles-sails/aubioROS/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/dave/ROS/aubioROS/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 aubionode/CMakeFiles/aubio-lib.dir/rule:
-	cd /home/cantor/Voiles-sails/aubioROS/build && $(MAKE) -f CMakeFiles/Makefile2 aubionode/CMakeFiles/aubio-lib.dir/rule
+	cd /home/dave/ROS/aubioROS/build && $(MAKE) -f CMakeFiles/Makefile2 aubionode/CMakeFiles/aubio-lib.dir/rule
 .PHONY : aubionode/CMakeFiles/aubio-lib.dir/rule
 
 # Convenience name for target.
@@ -157,12 +160,12 @@ aubio-lib: aubionode/CMakeFiles/aubio-lib.dir/rule
 
 # fast build rule for target.
 aubio-lib/fast:
-	cd /home/cantor/Voiles-sails/aubioROS/build && $(MAKE) -f aubionode/CMakeFiles/aubio-lib.dir/build.make aubionode/CMakeFiles/aubio-lib.dir/build
+	cd /home/dave/ROS/aubioROS/build && $(MAKE) -f aubionode/CMakeFiles/aubio-lib.dir/build.make aubionode/CMakeFiles/aubio-lib.dir/build
 .PHONY : aubio-lib/fast
 
 # Convenience name for target.
 aubionode/CMakeFiles/aubionode.dir/rule:
-	cd /home/cantor/Voiles-sails/aubioROS/build && $(MAKE) -f CMakeFiles/Makefile2 aubionode/CMakeFiles/aubionode.dir/rule
+	cd /home/dave/ROS/aubioROS/build && $(MAKE) -f CMakeFiles/Makefile2 aubionode/CMakeFiles/aubionode.dir/rule
 .PHONY : aubionode/CMakeFiles/aubionode.dir/rule
 
 # Convenience name for target.
@@ -171,12 +174,12 @@ aubionode: aubionode/CMakeFiles/aubionode.dir/rule
 
 # fast build rule for target.
 aubionode/fast:
-	cd /home/cantor/Voiles-sails/aubioROS/build && $(MAKE) -f aubionode/CMakeFiles/aubionode.dir/build.make aubionode/CMakeFiles/aubionode.dir/build
+	cd /home/dave/ROS/aubioROS/build && $(MAKE) -f aubionode/CMakeFiles/aubionode.dir/build.make aubionode/CMakeFiles/aubionode.dir/build
 .PHONY : aubionode/fast
 
 # Convenience name for target.
 aubionode/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule:
-	cd /home/cantor/Voiles-sails/aubioROS/build && $(MAKE) -f CMakeFiles/Makefile2 aubionode/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
+	cd /home/dave/ROS/aubioROS/build && $(MAKE) -f CMakeFiles/Makefile2 aubionode/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
 .PHONY : aubionode/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
 
 # Convenience name for target.
@@ -185,12 +188,12 @@ geometry_msgs_generate_messages_cpp: aubionode/CMakeFiles/geometry_msgs_generate
 
 # fast build rule for target.
 geometry_msgs_generate_messages_cpp/fast:
-	cd /home/cantor/Voiles-sails/aubioROS/build && $(MAKE) -f aubionode/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make aubionode/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build
+	cd /home/dave/ROS/aubioROS/build && $(MAKE) -f aubionode/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make aubionode/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build
 .PHONY : geometry_msgs_generate_messages_cpp/fast
 
 # Convenience name for target.
 aubionode/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule:
-	cd /home/cantor/Voiles-sails/aubioROS/build && $(MAKE) -f CMakeFiles/Makefile2 aubionode/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
+	cd /home/dave/ROS/aubioROS/build && $(MAKE) -f CMakeFiles/Makefile2 aubionode/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
 .PHONY : aubionode/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
@@ -199,12 +202,12 @@ geometry_msgs_generate_messages_lisp: aubionode/CMakeFiles/geometry_msgs_generat
 
 # fast build rule for target.
 geometry_msgs_generate_messages_lisp/fast:
-	cd /home/cantor/Voiles-sails/aubioROS/build && $(MAKE) -f aubionode/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make aubionode/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build
+	cd /home/dave/ROS/aubioROS/build && $(MAKE) -f aubionode/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make aubionode/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build
 .PHONY : geometry_msgs_generate_messages_lisp/fast
 
 # Convenience name for target.
 aubionode/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule:
-	cd /home/cantor/Voiles-sails/aubioROS/build && $(MAKE) -f CMakeFiles/Makefile2 aubionode/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
+	cd /home/dave/ROS/aubioROS/build && $(MAKE) -f CMakeFiles/Makefile2 aubionode/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
 .PHONY : aubionode/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
 
 # Convenience name for target.
@@ -213,12 +216,12 @@ geometry_msgs_generate_messages_py: aubionode/CMakeFiles/geometry_msgs_generate_
 
 # fast build rule for target.
 geometry_msgs_generate_messages_py/fast:
-	cd /home/cantor/Voiles-sails/aubioROS/build && $(MAKE) -f aubionode/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make aubionode/CMakeFiles/geometry_msgs_generate_messages_py.dir/build
+	cd /home/dave/ROS/aubioROS/build && $(MAKE) -f aubionode/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make aubionode/CMakeFiles/geometry_msgs_generate_messages_py.dir/build
 .PHONY : geometry_msgs_generate_messages_py/fast
 
 # Convenience name for target.
 aubionode/CMakeFiles/roscpp_generate_messages_cpp.dir/rule:
-	cd /home/cantor/Voiles-sails/aubioROS/build && $(MAKE) -f CMakeFiles/Makefile2 aubionode/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
+	cd /home/dave/ROS/aubioROS/build && $(MAKE) -f CMakeFiles/Makefile2 aubionode/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
 .PHONY : aubionode/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
 
 # Convenience name for target.
@@ -227,12 +230,12 @@ roscpp_generate_messages_cpp: aubionode/CMakeFiles/roscpp_generate_messages_cpp.
 
 # fast build rule for target.
 roscpp_generate_messages_cpp/fast:
-	cd /home/cantor/Voiles-sails/aubioROS/build && $(MAKE) -f aubionode/CMakeFiles/roscpp_generate_messages_cpp.dir/build.make aubionode/CMakeFiles/roscpp_generate_messages_cpp.dir/build
+	cd /home/dave/ROS/aubioROS/build && $(MAKE) -f aubionode/CMakeFiles/roscpp_generate_messages_cpp.dir/build.make aubionode/CMakeFiles/roscpp_generate_messages_cpp.dir/build
 .PHONY : roscpp_generate_messages_cpp/fast
 
 # Convenience name for target.
 aubionode/CMakeFiles/roscpp_generate_messages_lisp.dir/rule:
-	cd /home/cantor/Voiles-sails/aubioROS/build && $(MAKE) -f CMakeFiles/Makefile2 aubionode/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
+	cd /home/dave/ROS/aubioROS/build && $(MAKE) -f CMakeFiles/Makefile2 aubionode/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
 .PHONY : aubionode/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
@@ -241,12 +244,12 @@ roscpp_generate_messages_lisp: aubionode/CMakeFiles/roscpp_generate_messages_lis
 
 # fast build rule for target.
 roscpp_generate_messages_lisp/fast:
-	cd /home/cantor/Voiles-sails/aubioROS/build && $(MAKE) -f aubionode/CMakeFiles/roscpp_generate_messages_lisp.dir/build.make aubionode/CMakeFiles/roscpp_generate_messages_lisp.dir/build
+	cd /home/dave/ROS/aubioROS/build && $(MAKE) -f aubionode/CMakeFiles/roscpp_generate_messages_lisp.dir/build.make aubionode/CMakeFiles/roscpp_generate_messages_lisp.dir/build
 .PHONY : roscpp_generate_messages_lisp/fast
 
 # Convenience name for target.
 aubionode/CMakeFiles/roscpp_generate_messages_py.dir/rule:
-	cd /home/cantor/Voiles-sails/aubioROS/build && $(MAKE) -f CMakeFiles/Makefile2 aubionode/CMakeFiles/roscpp_generate_messages_py.dir/rule
+	cd /home/dave/ROS/aubioROS/build && $(MAKE) -f CMakeFiles/Makefile2 aubionode/CMakeFiles/roscpp_generate_messages_py.dir/rule
 .PHONY : aubionode/CMakeFiles/roscpp_generate_messages_py.dir/rule
 
 # Convenience name for target.
@@ -255,12 +258,12 @@ roscpp_generate_messages_py: aubionode/CMakeFiles/roscpp_generate_messages_py.di
 
 # fast build rule for target.
 roscpp_generate_messages_py/fast:
-	cd /home/cantor/Voiles-sails/aubioROS/build && $(MAKE) -f aubionode/CMakeFiles/roscpp_generate_messages_py.dir/build.make aubionode/CMakeFiles/roscpp_generate_messages_py.dir/build
+	cd /home/dave/ROS/aubioROS/build && $(MAKE) -f aubionode/CMakeFiles/roscpp_generate_messages_py.dir/build.make aubionode/CMakeFiles/roscpp_generate_messages_py.dir/build
 .PHONY : roscpp_generate_messages_py/fast
 
 # Convenience name for target.
 aubionode/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule:
-	cd /home/cantor/Voiles-sails/aubioROS/build && $(MAKE) -f CMakeFiles/Makefile2 aubionode/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
+	cd /home/dave/ROS/aubioROS/build && $(MAKE) -f CMakeFiles/Makefile2 aubionode/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
 .PHONY : aubionode/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
 
 # Convenience name for target.
@@ -269,12 +272,12 @@ rosgraph_msgs_generate_messages_cpp: aubionode/CMakeFiles/rosgraph_msgs_generate
 
 # fast build rule for target.
 rosgraph_msgs_generate_messages_cpp/fast:
-	cd /home/cantor/Voiles-sails/aubioROS/build && $(MAKE) -f aubionode/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make aubionode/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build
+	cd /home/dave/ROS/aubioROS/build && $(MAKE) -f aubionode/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make aubionode/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build
 .PHONY : rosgraph_msgs_generate_messages_cpp/fast
 
 # Convenience name for target.
 aubionode/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule:
-	cd /home/cantor/Voiles-sails/aubioROS/build && $(MAKE) -f CMakeFiles/Makefile2 aubionode/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
+	cd /home/dave/ROS/aubioROS/build && $(MAKE) -f CMakeFiles/Makefile2 aubionode/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
 .PHONY : aubionode/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
@@ -283,12 +286,12 @@ rosgraph_msgs_generate_messages_lisp: aubionode/CMakeFiles/rosgraph_msgs_generat
 
 # fast build rule for target.
 rosgraph_msgs_generate_messages_lisp/fast:
-	cd /home/cantor/Voiles-sails/aubioROS/build && $(MAKE) -f aubionode/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build.make aubionode/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build
+	cd /home/dave/ROS/aubioROS/build && $(MAKE) -f aubionode/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build.make aubionode/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build
 .PHONY : rosgraph_msgs_generate_messages_lisp/fast
 
 # Convenience name for target.
 aubionode/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule:
-	cd /home/cantor/Voiles-sails/aubioROS/build && $(MAKE) -f CMakeFiles/Makefile2 aubionode/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
+	cd /home/dave/ROS/aubioROS/build && $(MAKE) -f CMakeFiles/Makefile2 aubionode/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
 .PHONY : aubionode/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
 
 # Convenience name for target.
@@ -297,12 +300,12 @@ rosgraph_msgs_generate_messages_py: aubionode/CMakeFiles/rosgraph_msgs_generate_
 
 # fast build rule for target.
 rosgraph_msgs_generate_messages_py/fast:
-	cd /home/cantor/Voiles-sails/aubioROS/build && $(MAKE) -f aubionode/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make aubionode/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build
+	cd /home/dave/ROS/aubioROS/build && $(MAKE) -f aubionode/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make aubionode/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build
 .PHONY : rosgraph_msgs_generate_messages_py/fast
 
 # Convenience name for target.
 aubionode/CMakeFiles/rtaudio.dir/rule:
-	cd /home/cantor/Voiles-sails/aubioROS/build && $(MAKE) -f CMakeFiles/Makefile2 aubionode/CMakeFiles/rtaudio.dir/rule
+	cd /home/dave/ROS/aubioROS/build && $(MAKE) -f CMakeFiles/Makefile2 aubionode/CMakeFiles/rtaudio.dir/rule
 .PHONY : aubionode/CMakeFiles/rtaudio.dir/rule
 
 # Convenience name for target.
@@ -311,12 +314,12 @@ rtaudio: aubionode/CMakeFiles/rtaudio.dir/rule
 
 # fast build rule for target.
 rtaudio/fast:
-	cd /home/cantor/Voiles-sails/aubioROS/build && $(MAKE) -f aubionode/CMakeFiles/rtaudio.dir/build.make aubionode/CMakeFiles/rtaudio.dir/build
+	cd /home/dave/ROS/aubioROS/build && $(MAKE) -f aubionode/CMakeFiles/rtaudio.dir/build.make aubionode/CMakeFiles/rtaudio.dir/build
 .PHONY : rtaudio/fast
 
 # Convenience name for target.
 aubionode/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule:
-	cd /home/cantor/Voiles-sails/aubioROS/build && $(MAKE) -f CMakeFiles/Makefile2 aubionode/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
+	cd /home/dave/ROS/aubioROS/build && $(MAKE) -f CMakeFiles/Makefile2 aubionode/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
 .PHONY : aubionode/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
 
 # Convenience name for target.
@@ -325,12 +328,12 @@ std_msgs_generate_messages_cpp: aubionode/CMakeFiles/std_msgs_generate_messages_
 
 # fast build rule for target.
 std_msgs_generate_messages_cpp/fast:
-	cd /home/cantor/Voiles-sails/aubioROS/build && $(MAKE) -f aubionode/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make aubionode/CMakeFiles/std_msgs_generate_messages_cpp.dir/build
+	cd /home/dave/ROS/aubioROS/build && $(MAKE) -f aubionode/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make aubionode/CMakeFiles/std_msgs_generate_messages_cpp.dir/build
 .PHONY : std_msgs_generate_messages_cpp/fast
 
 # Convenience name for target.
 aubionode/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule:
-	cd /home/cantor/Voiles-sails/aubioROS/build && $(MAKE) -f CMakeFiles/Makefile2 aubionode/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
+	cd /home/dave/ROS/aubioROS/build && $(MAKE) -f CMakeFiles/Makefile2 aubionode/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
 .PHONY : aubionode/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
@@ -339,12 +342,12 @@ std_msgs_generate_messages_lisp: aubionode/CMakeFiles/std_msgs_generate_messages
 
 # fast build rule for target.
 std_msgs_generate_messages_lisp/fast:
-	cd /home/cantor/Voiles-sails/aubioROS/build && $(MAKE) -f aubionode/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make aubionode/CMakeFiles/std_msgs_generate_messages_lisp.dir/build
+	cd /home/dave/ROS/aubioROS/build && $(MAKE) -f aubionode/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make aubionode/CMakeFiles/std_msgs_generate_messages_lisp.dir/build
 .PHONY : std_msgs_generate_messages_lisp/fast
 
 # Convenience name for target.
 aubionode/CMakeFiles/std_msgs_generate_messages_py.dir/rule:
-	cd /home/cantor/Voiles-sails/aubioROS/build && $(MAKE) -f CMakeFiles/Makefile2 aubionode/CMakeFiles/std_msgs_generate_messages_py.dir/rule
+	cd /home/dave/ROS/aubioROS/build && $(MAKE) -f CMakeFiles/Makefile2 aubionode/CMakeFiles/std_msgs_generate_messages_py.dir/rule
 .PHONY : aubionode/CMakeFiles/std_msgs_generate_messages_py.dir/rule
 
 # Convenience name for target.
@@ -353,39 +356,15 @@ std_msgs_generate_messages_py: aubionode/CMakeFiles/std_msgs_generate_messages_p
 
 # fast build rule for target.
 std_msgs_generate_messages_py/fast:
-	cd /home/cantor/Voiles-sails/aubioROS/build && $(MAKE) -f aubionode/CMakeFiles/std_msgs_generate_messages_py.dir/build.make aubionode/CMakeFiles/std_msgs_generate_messages_py.dir/build
+	cd /home/dave/ROS/aubioROS/build && $(MAKE) -f aubionode/CMakeFiles/std_msgs_generate_messages_py.dir/build.make aubionode/CMakeFiles/std_msgs_generate_messages_py.dir/build
 .PHONY : std_msgs_generate_messages_py/fast
-
-src/aubiopitch.o: src/aubiopitch.c.o
-.PHONY : src/aubiopitch.o
-
-# target to build an object file
-src/aubiopitch.c.o:
-	cd /home/cantor/Voiles-sails/aubioROS/build && $(MAKE) -f aubionode/CMakeFiles/aubionode.dir/build.make aubionode/CMakeFiles/aubionode.dir/src/aubiopitch.c.o
-.PHONY : src/aubiopitch.c.o
-
-src/aubiopitch.i: src/aubiopitch.c.i
-.PHONY : src/aubiopitch.i
-
-# target to preprocess a source file
-src/aubiopitch.c.i:
-	cd /home/cantor/Voiles-sails/aubioROS/build && $(MAKE) -f aubionode/CMakeFiles/aubionode.dir/build.make aubionode/CMakeFiles/aubionode.dir/src/aubiopitch.c.i
-.PHONY : src/aubiopitch.c.i
-
-src/aubiopitch.s: src/aubiopitch.c.s
-.PHONY : src/aubiopitch.s
-
-# target to generate assembly for a file
-src/aubiopitch.c.s:
-	cd /home/cantor/Voiles-sails/aubioROS/build && $(MAKE) -f aubionode/CMakeFiles/aubionode.dir/build.make aubionode/CMakeFiles/aubionode.dir/src/aubiopitch.c.s
-.PHONY : src/aubiopitch.c.s
 
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
 # target to build an object file
 src/main.cpp.o:
-	cd /home/cantor/Voiles-sails/aubioROS/build && $(MAKE) -f aubionode/CMakeFiles/aubionode.dir/build.make aubionode/CMakeFiles/aubionode.dir/src/main.cpp.o
+	cd /home/dave/ROS/aubioROS/build && $(MAKE) -f aubionode/CMakeFiles/aubionode.dir/build.make aubionode/CMakeFiles/aubionode.dir/src/main.cpp.o
 .PHONY : src/main.cpp.o
 
 src/main.i: src/main.cpp.i
@@ -393,7 +372,7 @@ src/main.i: src/main.cpp.i
 
 # target to preprocess a source file
 src/main.cpp.i:
-	cd /home/cantor/Voiles-sails/aubioROS/build && $(MAKE) -f aubionode/CMakeFiles/aubionode.dir/build.make aubionode/CMakeFiles/aubionode.dir/src/main.cpp.i
+	cd /home/dave/ROS/aubioROS/build && $(MAKE) -f aubionode/CMakeFiles/aubionode.dir/build.make aubionode/CMakeFiles/aubionode.dir/src/main.cpp.i
 .PHONY : src/main.cpp.i
 
 src/main.s: src/main.cpp.s
@@ -401,7 +380,7 @@ src/main.s: src/main.cpp.s
 
 # target to generate assembly for a file
 src/main.cpp.s:
-	cd /home/cantor/Voiles-sails/aubioROS/build && $(MAKE) -f aubionode/CMakeFiles/aubionode.dir/build.make aubionode/CMakeFiles/aubionode.dir/src/main.cpp.s
+	cd /home/dave/ROS/aubioROS/build && $(MAKE) -f aubionode/CMakeFiles/aubionode.dir/build.make aubionode/CMakeFiles/aubionode.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
 # Help Target
@@ -432,9 +411,6 @@ help:
 	@echo "... std_msgs_generate_messages_lisp"
 	@echo "... std_msgs_generate_messages_py"
 	@echo "... test"
-	@echo "... src/aubiopitch.o"
-	@echo "... src/aubiopitch.i"
-	@echo "... src/aubiopitch.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
@@ -449,6 +425,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/cantor/Voiles-sails/aubioROS/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/dave/ROS/aubioROS/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 
