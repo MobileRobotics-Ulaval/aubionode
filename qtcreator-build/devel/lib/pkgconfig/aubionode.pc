@@ -1,8 +1,0 @@
-prefix=/home/cantor/Voiles-sails/aubioROS/qtcreator-build/devel
-
-Name: aubionode
-Description: Description of aubionode
-Version: 0.0.0
-Cflags: 
-Libs: -L/home/cantor/Voiles-sails/aubioROS/qtcreator-build/devel/lib 
-Requires: geometry_msgs
