@@ -46,6 +46,30 @@ template <typename T> int sgn(T val) {
     return (T(0) < val) - (val < T(0));
 }
 
+void processPitch(float* input, int bufferSize)
+{
+    float rmsAmplitude  = 0;
+
+    for(int i = 0; i < bufferSize; i++)
+    {
+        //calculate the root mean square amplitude
+        rmsAmplitude += sqrt(input[i]*input[i]);
+
+        INPUT->data[i] = input[i];
+    }
+
+    rmsAmplitude /= bufferSize;
+
+    if(rmsAmplitude > MIN_AMPLITUDE)
+    {
+        aubio_onset_do(ONSET_OBJECT, INPUT, OUTPUT);
+
+        smpl_t new_pitch = fvec_get_sample(OUTPUT, 0);
+
+        std::cout << new_pitch << std::endl;
+    }
+}
+
 const char* get_ip()
 {
   int fd;

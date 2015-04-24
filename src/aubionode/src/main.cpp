@@ -12,6 +12,10 @@
 #include "std_msgs/String.h"
 #include <sstream>
 
+// dynamic reconfigure
+#include <dynamic_reconfigure/server.h>
+#include <aubionode/audioConstantsConfig.h>
+
 #define AUBIO_UNSTABLE 1
 #include "aubio-lib/src/aubio.h"
 #include "rtaudio/RtAudio.h"
@@ -25,7 +29,6 @@ ros::Publisher aubio_node;
 //(TODO : mettre le tout oriente objet)
 aubio_pitch_t* PITCH_OBJECT;
 aubio_onset_t* ONSET_OBJECT;
-float MIN_AMPLITUDE;
 smpl_t ONSET_THRESHOLD;
 unsigned int WINDOW_SIZE;
 unsigned int HOP_SIZE;
@@ -56,22 +59,22 @@ int timeout(int delay, int restart)
 {
     time_t t = time(NULL);
     struct tm tm = *localtime(&t);
-    if((tm.tm_sec-timeout_start)>delay || restart)
+
+    if((tm.tm_sec - timeout_start) > delay || restart)
     {
-	timeout_start=tm.tm_sec;
-	std::cout << "Timeout\n";
-	return 1;
+        timeout_start=tm.tm_sec;
+        std::cout << "Timeout" << std::endl;
+        return 1;
     }
     return 0;
 }
 
 void setup()
 {
-    MIN_AMPLITUDE = 0.05;
-    ONSET_THRESHOLD = -0.0005;
-    SILENCE_THRESHOLD = -30;
+    ONSET_THRESHOLD = -0.005; // default -0.0005
+    SILENCE_THRESHOLD = -40; // default -20
 
-    WINDOW_SIZE = 1024;
+    WINDOW_SIZE = 1024; // default 1024
     HOP_SIZE = WINDOW_SIZE/2;
     SAMPLE_RATE = 44100;
     NB_CHANNELS = 1;
@@ -83,7 +86,9 @@ void setup()
     INPUT = new_fvec(HOP_SIZE);
     OUTPUT = new_fvec(1);
     ONSET = new_fvec(1);
-    if (median) {
+
+    if(median)
+    {
       note_buffer = new_fvec (median);
       note_buffer2 = new_fvec (median);
     }
@@ -93,9 +98,8 @@ void setup()
     aubio_pitch_set_unit(PITCH_OBJECT, PITCH_UNIT);
     aubio_onset_set_threshold(ONSET_OBJECT, ONSET_THRESHOLD);
 
-   timeout(timeout_sec,1);
+    timeout(timeout_sec,1);
 }
-
 
 void destructor()
 {
@@ -103,158 +107,15 @@ void destructor()
     del_aubio_onset(ONSET_OBJECT);
     del_fvec(INPUT);
     del_fvec(OUTPUT);
-    if (median) {
+    del_fvec(ONSET);
+
+    if(median)
+    {
       del_fvec(note_buffer);
       del_fvec(note_buffer2);
     }
+
     aubio_cleanup();
-}
-
-/*
-/ fonction qui recoit une note de process_block et cumul pour créer un triplet
-*/
-void send_noteon (smpl_t pitch, int velo)
-{
-  if(pitch<40 || /*velo==0 ||*/ pitch>84) //50=D3 and 84=C6
-	return;
-
-  if(nbr_notes==0)	//restart timer
-	timeout(timeout_sec,1);
-  else if(notes_array[nbr_notes-1]==pitch)
-	return;
-
-  if(!timeout(timeout_sec,0))
-  {
-    notes_array[nbr_notes]=pitch;
-    if(nbr_notes==2)
-    {
-	int interval1= notes_array[1]-notes_array[0];
-	int interval2= notes_array[2]-notes_array[1];
-  	std::cout << "INTERVALS: " << interval1 << " & " << interval2 << ", with last ";
-	//send_command(interval1, interval2);
-	nbr_notes=0;
-    }else
-	nbr_notes++;
-  }else	//timed out!
-  {
-	nbr_notes=0;
-	notes_array[nbr_notes]=pitch;
-	nbr_notes++;
-  }
-  std::cout << "NOTE: " << pitch << "(Velo:" << velo << ")\n";
-}
-
-/*
-/ note_append, get_note et process_block viennent de l'exemple : http://aubio.org/doc/0.4.1/examples_2aubionotes_8c-example.html
-*/
-void note_append (fvec_t * note_buffer, smpl_t curnote)
-{
-  uint_t i = 0;
-  for (i = 0; i < note_buffer->length - 1; i++) {
-    note_buffer->data[i] = note_buffer->data[i + 1];
-  }
-  note_buffer->data[note_buffer->length - 1] = curnote;
-  return;
-}
-
-uint_t get_note (fvec_t * note_buffer, fvec_t * note_buffer2)
-{
-  uint_t i;
-  for (i = 0; i < note_buffer->length; i++) {
-    note_buffer2->data[i] = note_buffer->data[i];
-  }
-  return fvec_median (note_buffer2);
-}
-
-void process_block (float* input, int bufferSize)
-{
-  smpl_t new_pitch, curlevel;
-  fvec_zeros(OUTPUT);
-    for(int i = 0; i < bufferSize; i++)
-    {
-        INPUT->data[i] = input[i];
-    }
-
-  aubio_onset_do(ONSET_OBJECT, INPUT, ONSET);
-  aubio_pitch_do (PITCH_OBJECT, INPUT, OUTPUT);
-  new_pitch = fvec_get_sample(OUTPUT, 0);
-  if(median){
-    note_append(note_buffer, new_pitch);
-  }
-  /* curlevel is negatif or 1 if silence */
-  curlevel = aubio_level_detection(INPUT, SILENCE_THRESHOLD);
-  if (fvec_get_sample(ONSET, 0)) {
-    /* test for silence */
-    if (curlevel == 1.) {
-      if (median) isready = 0;
-      /* send note off */
-      //send_noteon(curnote,0);
-    } else {
-      if (median) {
-        isready = 1;
-      } else {
-        /* kill old note */
-        //send_noteon(curnote,0);
-        /* get and send new one */
-        send_noteon(new_pitch,127+(int)floor(curlevel));
-        curnote = new_pitch;
-      }
-    }
-  } else {
-    if (median) {
-      if (isready > 0)
-        isready++;
-      if (isready == median)
-      {
-        /* kill old note */
-        //send_noteon(curnote,0);
-        newnote = get_note(note_buffer, note_buffer2);
-        curnote = newnote;
-        /* get and send new one */
-        if (curnote>45){
-          send_noteon(curnote,127+(int)floor(curlevel));
-        }
-      }
-    } // if median
-  }
-}
-/*
-void processPitch(float* input, int bufferSize)
-{
-    float rmsAmplitude  = 0;
-
-    for(int i = 0; i < bufferSize; i++)
-    {
-        //calculate the root mean square amplitude
-        rmsAmplitude += sqrt(input[i]*input[i]);
-
-        INPUT->data[i] = input[i];
-    }
-
-    rmsAmplitude /= bufferSize;
-
-    if(rmsAmplitude > MIN_AMPLITUDE)
-    {
-//        aubio_pitch_do(PITCH_OBJECT, INPUT, OUTPUT); // put pitch in variable OUPUT
-	aubio_onset_do(ONSET_OBJECT, INPUT, OUTPUT);
-
-        smpl_t new_pitch = fvec_get_sample(OUTPUT, 0);
-
-        std::cout << new_pitch << std::endl;
-    }
-}
-*/
-int captureOutput(void *outputBuffer, void *inputBuffer, unsigned int bufferSize,
-                  double streamTime, RtAudioStreamStatus status, void *userData)
-{
-    if (status){std::cout << "Stream overflow detected!" << std::endl;}
-
-    float* in = (float*) inputBuffer;
-
-//    processPitch(in, bufferSize);
-    process_block(in, bufferSize);
-
-    return 0;
 }
 
 // RtAudio method https://www.music.mcgill.ca/~gary/rtaudio/probe.html
@@ -271,10 +132,147 @@ void getAudioDevicesInfo()
           // Print, for example, the maximum number of output channels for each device
           std::cout << "device = " << i;
           std::cout << ": maximum input channels = " << info.inputChannels;
-	  std::cout << ", name = " << info.name;
-	  std::cout << ", is default = " << info.isDefaultInput << "\n";
+      std::cout << ", name = " << info.name;
+      std::cout << ", is default = " << info.isDefaultInput << std::endl;
         }
       }
+}
+
+/*
+/ fonction qui recoit une note de process_block et cumul pour créer un triplet
+*/
+void send_noteon (smpl_t pitch, int velo)
+{
+  if(pitch < 40 || pitch > 84) //50=D3 and 84=C6
+  {
+      std::cout << "Strange pitch of " << pitch << " detected" << std::endl;
+      return;
+  }
+
+  if(nbr_notes==0) timeout(timeout_sec,1); //restart timer
+
+  else if(notes_array[nbr_notes-1]==pitch)
+  {
+      std::cout << "Same pitch detected" << std::endl;
+      return;
+  }
+
+  if(!timeout(timeout_sec,0))
+  {
+    notes_array[nbr_notes]=pitch;
+
+    if(nbr_notes==2)
+    {
+        int interval1 = notes_array[1]-notes_array[0];
+        int interval2 = notes_array[2]-notes_array[1];
+        std::cout << "INTERVALS: " << interval1 << " & " << interval2 << ", with last ";
+        //send_command(interval1, interval2);
+        nbr_notes=0;
+    }
+    else nbr_notes++;
+  }
+  else	//timed out!
+  {
+	nbr_notes=0;
+	notes_array[nbr_notes]=pitch;
+	nbr_notes++;
+  }
+  std::cout << "NOTE: " << pitch << "(Velo:" << velo << ")"<<std::endl;
+}
+
+/*
+/ note_append, get_note et process_block viennent de l'exemple : http://aubio.org/doc/0.4.1/examples_2aubionotes_8c-example.html
+*/
+void note_append (fvec_t * note_buffer, smpl_t curnote)
+{
+  uint_t i = 0;
+  for (i = 0; i < note_buffer->length - 1; i++)
+  {
+    note_buffer->data[i] = note_buffer->data[i + 1];
+  }
+
+  note_buffer->data[note_buffer->length - 1] = curnote;
+  return;
+}
+
+uint_t get_note (fvec_t * note_buffer, fvec_t * note_buffer2)
+{
+  uint_t i;
+  for (i = 0; i < note_buffer->length; i++)
+  {
+    note_buffer2->data[i] = note_buffer->data[i];
+  }
+
+  return fvec_median (note_buffer2);
+}
+
+void process_block (float* input, int bufferSize)
+{
+    smpl_t new_pitch, curlevel;
+    fvec_zeros(OUTPUT);
+
+    for(int i = 0; i < bufferSize; i++)
+    {
+        INPUT->data[i] = input[i];
+    }
+
+    aubio_onset_do(ONSET_OBJECT, INPUT, ONSET);
+    aubio_pitch_do (PITCH_OBJECT, INPUT, OUTPUT);
+    new_pitch = fvec_get_sample(OUTPUT, 0);
+
+      if(median)
+      {
+        note_append(note_buffer, new_pitch);
+      }
+      /* curlevel is negatif or 1 if silence */
+      curlevel = aubio_level_detection(INPUT, SILENCE_THRESHOLD);
+      if (fvec_get_sample(ONSET, 0)) {
+        /* test for silence */
+        if (curlevel == 1.) {
+          if (median) isready = 0;
+          /* send note off */
+          //send_noteon(curnote,0);
+        } else {
+          if (median) {
+            isready = 1;
+          } else {
+            /* kill old note */
+            //send_noteon(curnote,0);
+            /* get and send new one */
+            send_noteon(new_pitch,127+(int)floor(curlevel));
+            curnote = new_pitch;
+          }
+        }
+      }
+      else {
+        if (median) {
+          if (isready > 0)
+            isready++;
+          if (isready == median)
+          {
+            /* kill old note */
+            //send_noteon(curnote,0);
+            newnote = get_note(note_buffer, note_buffer2);
+            curnote = newnote;
+            /* get and send new one */
+            if (curnote>45){
+              send_noteon(curnote, 127 + (int)floor(curlevel));
+            }
+          }
+        } // if median
+  }
+}
+
+int captureOutput(void *outputBuffer, void *inputBuffer, unsigned int bufferSize,
+                  double streamTime, RtAudioStreamStatus status, void *userData)
+{
+    if (status){std::cout << "Stream overflow detected!" << std::endl;}
+
+    float* in = (float*) inputBuffer;
+
+    process_block(in, bufferSize);
+
+    return 0;
 }
 
 void openStream()
@@ -283,14 +281,14 @@ void openStream()
 
     if(adc.getDeviceCount() < 1)
     {
-        std::cout << "\nNo audio devices found!\n";
+        std::cout << "No audio devices found!" << std::endl;
         exit( 0 );
     }
 
-    //getAudioDevicesInfo();
+    getAudioDevicesInfo();
 
     RtAudio::StreamParameters parameters;
-    std::cout << "Selecting default audio input" << "\n";
+    std::cout << "Selecting default audio input" << std::endl;
     parameters.deviceId = adc.getDefaultInputDevice();
     parameters.nChannels = NB_CHANNELS;
     parameters.firstChannel = 0;
@@ -308,9 +306,8 @@ void openStream()
       exit( 0 );
     }
 
-    char input;
-    std::cout << "\nRecording ... press <enter> to quit.\n";
-    std::cin.get( input );
+    std::cout << "Recording ... press <CTRL-C> to quit." << std::endl;;
+    ros::spin();
 
     try
     {
@@ -324,12 +321,25 @@ void openStream()
     if(adc.isStreamOpen()){ adc.closeStream(); }
 }
 
+void dynamicParametersCallback(aubionode::audioConstantsConfig &config, uint32_t level)
+{
+    ONSET_THRESHOLD = config.onset_threshold;
+    SILENCE_THRESHOLD = config.silence_threshold;
+
+    ROS_INFO("Parameters changed");
+}
+
 int main(int argc, char **argv)
 {
     std::string rosname = "Aubionode";
     std::string temp_arg;
     ros::init(argc, argv, rosname);
     ros::NodeHandle node;
+
+    dynamic_reconfigure::Server<aubionode::audioConstantsConfig> dynamicReconfigServer;
+    dynamic_reconfigure::Server<aubionode::audioConstantsConfig>::CallbackType dynamicReconfigCallback;
+    dynamicReconfigCallback = boost::bind(&dynamicParametersCallback, _1, _2);
+    dynamicReconfigServer.setCallback(dynamicReconfigCallback);
 
     setup();
 

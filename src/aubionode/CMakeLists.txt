@@ -7,8 +7,18 @@ project(aubionode)
 
 #set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake_modules" ${CMAKE_MODULE_PATH})
 
-find_package(catkin REQUIRED COMPONENTS geometry_msgs roscpp rospy std_msgs genmsg cmake_modules)
+find_package(catkin REQUIRED COMPONENTS
+    geometry_msgs
+    roscpp rospy
+    std_msgs
+    genmsg
+    cmake_modules
+    dynamic_reconfigure
+)
 find_package(Eigen REQUIRED)
+
+# Generate the reconfigure options
+generate_dynamic_reconfigure_options(cfg/audioConstants.cfg)
 
 #find_package(SFML 2 REQUIRED system audio)
 #if(SFML_FOUND)
@@ -24,11 +34,16 @@ find_package(Eigen REQUIRED)
 #generate_messages(DEPENDENCIES std_msgs geometry_msgs)
 
 
-## Declare a catkin package
-catkin_package( INCLUDE_DIRS 
-# Libraries
-CATKIN_DEPENDS  geometry_msgs
-DEPENDS eigen)
+# export the dependencies of this package for who ever depends on us
+catkin_package(
+    INCLUDE_DIRS
+    CATKIN_DEPENDS
+    geometry_msgs
+    roscpp rospy
+    std_msgs
+    dynamic_reconfigure
+    DEPENDS eigen
+)
 
 ##Specify additional locations of header files
 ## Your package locations should be listed before other locations
