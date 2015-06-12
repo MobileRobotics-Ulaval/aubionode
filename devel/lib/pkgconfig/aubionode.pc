@@ -1,8 +1,0 @@
-prefix=/home/cantor/Voiles-sails/aubioROS/devel
-
-Name: aubionode
-Description: Description of aubionode
-Version: 0.0.0
-Cflags: -I/home/cantor/Voiles-sails/aubioROS/devel/include
-Libs: -L/home/cantor/Voiles-sails/aubioROS/devel/lib 
-Requires: geometry_msgs roscpp rospy std_msgs dynamic_reconfigure
