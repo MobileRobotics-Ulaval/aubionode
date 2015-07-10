@@ -10,6 +10,8 @@
 
 //libraries for the control
 #include "std_msgs/String.h"
+#include "aubionode/Commands.h"
+#include "geometry_msgs/Pose.h"
 #include <sstream>
 
 // dynamic reconfigure
@@ -20,11 +22,14 @@
 #include "aubio-lib/src/aubio.h"
 #include "rtaudio/RtAudio.h"
 
+geometry_msgs::Pose pose;
+
 /*
 /	sudo apt-get install expect-dev
 */
 
 ros::Publisher aubio_node;
+ros::Publisher Desired_pose_node;
 
 //(TODO : mettre le tout oriente objet)
 aubio_pitch_t* PITCH_OBJECT;
@@ -52,6 +57,7 @@ int nbr_notes = 0;
 int timeout_sec = 4;
 int timeout_start = 0;
 
+aubionode::Commands com;
 /*
 / Fonction de timeout pour la  détection de notes successives
 */
@@ -138,6 +144,47 @@ void getAudioDevicesInfo()
       }
 }
 
+void setdefaultpose(){
+com.deltaPose.position.x=3;
+com.deltaPose.position.y=0;
+com.deltaPose.position.z=3.0;
+com.deltaPose.orientation.x=0;
+com.deltaPose.orientation.y=0;
+com.deltaPose.orientation.z=0;
+}
+
+void send_command(int int1, int int2)
+{
+	if(int1<=-1 && int1>=-3 && int2<=-1 && int2>=-3){	//-2,-2
+		std::cout << "Got command -2,-2 !" << std::endl;
+		setdefaultpose();
+		com.path=false;com.pathNb=0;
+		Desired_pose_node.publish(com);
+	}else if(int1<=2 && int1>=0 && int2<=2 && int2>=0){	//1,1
+		std::cout << "Got command 1,1 !" << std::endl;
+		setdefaultpose();
+		com.path=true;com.pathNb=9;
+		Desired_pose_node.publish(com);
+	}else if(int1<=3 && int1>=1 && int2<=6 && int2>=4){	//2,5
+		std::cout << "Got command 2,5 !" << std::endl;
+		setdefaultpose();
+		com.deltaPose.position.z=4.25;
+		com.path=false;com.pathNb=0;
+		Desired_pose_node.publish(com);
+	}else if(int1<=8 && int1>=6 && int2<=-3 && int2>=-5){	//7,-4
+		std::cout << "Got command 7,-4 !" << std::endl;
+		setdefaultpose();
+		com.deltaPose.position.z=0.5;
+		com.path=false;com.pathNb=0;
+		Desired_pose_node.publish(com);
+	}else if(int1<=-3 && int1>=-5 && int2<=-3 && int2>=-5){	//-4,-4
+		std::cout << "Got command -4,-4 !" << std::endl;
+		setdefaultpose();
+		com.path=true;com.pathNb=10;
+		Desired_pose_node.publish(com);
+	}else
+		std::cout << "No command associated..." << std::endl;
+}
 /*
 / fonction qui recoit une note de process_block et cumul pour créer un triplet
 */
@@ -165,8 +212,13 @@ void send_noteon (smpl_t pitch, int velo)
     {
         int interval1 = notes_array[1]-notes_array[0];
         int interval2 = notes_array[2]-notes_array[1];
+	if(interval1>24)
+		interval1=interval1-24;
+	if(interval2>24)
+		interval2=interval2-24;
+
         std::cout << "INTERVALS: " << interval1 << " & " << interval2 << ", with last ";
-        //send_command(interval1, interval2);
+        send_command(interval1, interval2);
         nbr_notes=0;
     }
     else nbr_notes++;
@@ -341,7 +393,25 @@ int main(int argc, char **argv)
     dynamicReconfigCallback = boost::bind(&dynamicParametersCallback, _1, _2);
     dynamicReconfigServer.setCallback(dynamicReconfigCallback);
 
+    Desired_pose_node = node.advertise<aubionode::Commands>("/192_168_10_243/commands",1);
+
     setup();
+
+///set up to send to new control node
+pose.position.x=3;
+pose.position.y=0;
+pose.position.z=3.0;
+pose.orientation.x=0;
+pose.orientation.y=0;
+pose.orientation.z=0;
+    com.header.stamp=ros::Time::now();
+    com.deltaPose=pose;
+    com.onOff=true;
+    com.commandOnOff=true;
+    com.ctrlNb=3;
+    com.maxThrust=50;
+    com.GainCP=0.3;
+    com.noInt=true;
 
     openStream();
 

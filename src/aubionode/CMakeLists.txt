@@ -27,11 +27,11 @@ generate_dynamic_reconfigure_options(cfg/audioConstants.cfg)
 #endif()
 
 ## Declare ROS messages, services and actions
-#add_message_files(DIRECTORY msg FILES state.msg)
+add_message_files(DIRECTORY msg FILES Commands.msg)
 #add_service_files(FILES AddTwoInts.srv)
 
 ## Generate added messages and services
-#generate_messages(DEPENDENCIES std_msgs geometry_msgs)
+generate_messages(DEPENDENCIES std_msgs geometry_msgs)
 
 
 # export the dependencies of this package for who ever depends on us
