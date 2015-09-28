@@ -9,5 +9,8 @@ The library Aubio (http://aubio.org/) source code is included in the node and co
 
 #### Installation
 
+required
+apt-get install libasound-dev
+
 ###### Acknowledgement
 This research is conducted by the Mobile Robotics laboratory of professor Philippe Giguere at University Laval, with the collaboration of the research groups of professor Inna Sharf and professor Gregory Dudek at McGill University and under the artistic direction of Nicolas Reeves, professor at UQAM. All the development is coordinated by David St-Onge, eng. We would like to thanks the FQRNT-Team grant for their support.
